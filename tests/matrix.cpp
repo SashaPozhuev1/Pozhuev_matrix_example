@@ -225,7 +225,7 @@ TEST_CASE("selfmul matrix")
     matrix1 *= matrix2;
     
     std::ostringstream ostream;
-    result.write( ostream );
+    matrix1.write( ostream );
     
     REQUIRE( strokar == ostream.str() );
 }
