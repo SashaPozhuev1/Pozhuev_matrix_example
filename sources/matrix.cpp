@@ -6,7 +6,6 @@ matrix_t::matrix_t() : elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
 
 matrix_t::matrix_t( matrix_t const & other )
 {
-	//здесь я пишу.
 	rows_ = other.rows_;
 		collumns_ = other.collumns_;
 
@@ -17,12 +16,10 @@ matrix_t::matrix_t( matrix_t const & other )
 				elements_[i][j] = other.elements_[i][j];
 			}
 		}
-	//
 }
 
 matrix_t & matrix_t::operator =( matrix_t const & other )
 {
-	//здесь
 	if (this != &other) {
 			for (std::size_t i = 0; i < rows_; ++i) {
 				delete[] elements_[i];
@@ -41,18 +38,16 @@ matrix_t & matrix_t::operator =( matrix_t const & other )
 				}
 			}
 		}
-	//
+
 	return *this;
 }
 
 matrix_t::~matrix_t()
 {
-	//здесь
 	for (std::size_t i = 0; i < rows_; ++i) {
 			delete[] elements_[i];
 		}
 		delete[] elements_;
-	//
 }
 
 std::size_t matrix_t::rows() const
@@ -67,8 +62,6 @@ std::size_t matrix_t::collumns() const
 
 matrix_t matrix_t::operator +( matrix_t const & other ) const
 {
-//	matrix_t result;  здесь будет мой метод
-	//здесь
 	matrix_t result(other);
 	if (rows_ == other.rows_ &&
 	    collumns_ == other.collumns_) {
@@ -81,13 +74,12 @@ matrix_t matrix_t::operator +( matrix_t const & other ) const
 	else {
 		std::cout << "An error has occured while reading input data__\n";
 	}
-	//
+	
 	return result;
 }
 
 matrix_t matrix_t::operator -( matrix_t const & other ) const
 {
-//	matrix_t result; своё
 	matrix_t result(other);
 	if (rows_ == other.rows_ &&
 	    collumns_ == other.collumns_) {
@@ -101,14 +93,13 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
 	else {
 		std::cout << "An error has occured while reading input data__\n";	
 	}
-	//
+	
 	return result;
 }
 
 matrix_t matrix_t::operator *( matrix_t const & other ) const
 {
 	matrix_t result;
-	//здесь
 		if (collumns_ == other.rows_) {
 			result.rows_ = rows_;
 			result.collumns_ = other.collumns_;
@@ -132,13 +123,12 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
 		else {
 			std::cout << "An error has occured while reading input data__\n";	
 		}
-	//
+	
 	return result;
 }
 
 matrix_t & matrix_t::operator -=( matrix_t const & other )
 {
-	//
 	if (rows_ == other.rows_ &&
 	    collumns_ == other.collumns_) {
 		for (std::size_t i = 0; i < rows_; ++i) {
@@ -150,13 +140,12 @@ matrix_t & matrix_t::operator -=( matrix_t const & other )
 	else {
 		std::cout << "An error has occured while reading input data__\n";
 	}
-	//
+	
 	return *this;
 }
 
 matrix_t & matrix_t::operator +=( matrix_t const & other )
 {
-	//
 	if (rows_ == other.rows_ &&
 	    collumns_ == other.collumns_) {
 		for (std::size_t i = 0; i < rows_; ++i) {
@@ -168,13 +157,12 @@ matrix_t & matrix_t::operator +=( matrix_t const & other )
 	else {
 		std::cout << "An error has occured while reading input data__\n";
 	}
-	//
+	
 	return *this;
 }
 
 matrix_t & matrix_t::operator *=( matrix_t const & other )
 {
-	//здесь
 		if (collumns_ == other.rows_) {
 			matrix_t result;
 			result.rows_ = rows_;
@@ -200,7 +188,7 @@ matrix_t & matrix_t::operator *=( matrix_t const & other )
 		else {
 			std::cout << "An error has occured while reading input data__\n";	
 		}
-	//
+	
 	return *this;
 }
 
